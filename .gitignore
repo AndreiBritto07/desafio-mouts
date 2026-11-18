@@ -1,0 +1,31 @@
+
+# Dependências
+node_modules/
+
+# Evidências geradas pelo Cypress
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+
+# Relatórios
+coverage/
+reports/
+test-results/
+
+# Variáveis de ambiente
+.env
+.env.*
+!.env.example
+cypress.env.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+tmp/
+temp/
