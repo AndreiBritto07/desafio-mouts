@@ -62,6 +62,8 @@ Os cenários negativos verificam respostas de erro (`400` ou `401` conforme o ca
 │       ├── step_definitions/         # Implementações dos passos Gherkin
 │       ├── commands.js
 │       └── e2e.js
+├── .gitignore
+├── README.md
 ├── cypress.config.js
 ├── package.json
 └── package-lock.json
@@ -80,12 +82,12 @@ A organização separa a descrição dos comportamentos (`features`), os passos 
 Clone o repositório e instale as dependências:
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
+git clone https://github.com/AndreiBritto07/desafio-mouts.git
 cd desafio-mouts
 npm ci
 ```
 
-> Substitua `<URL_DO_SEU_REPOSITORIO>` pelo endereço do repositório publicado no GitHub.
+Repositório público: [AndreiBritto07/desafio-mouts](https://github.com/AndreiBritto07/desafio-mouts).
 
 ## Execução dos testes
 
@@ -138,9 +140,14 @@ Gatilhos previstos no workflow:
 
 A execução utiliza um runner Ubuntu e o navegador Chrome, por meio de `cypress-io/github-action@v6`. Em caso de falha, o workflow tenta disponibilizar capturas de tela como artefatos (`cypress-screenshots`).
 
-> **Atenção antes de publicar:** a versão enviada do workflow inclui `timezone: 'America/Sao_Paulo'` dentro de `schedule`, propriedade que não faz parte da sintaxe suportada para agendamento do GitHub Actions. Remova essa linha do YAML e mantenha `cron: '0 11 * * *'` para agendar às 8h de Brasília (UTC−3). O GitHub pode atrasar o início de execuções agendadas em períodos de alta carga.
+O GitHub pode atrasar o início de execuções agendadas em períodos de alta carga. O agendamento diário ainda precisa ser confirmado por uma execução disparada pelo cron.
 
 ## Evidências e resultados
+
+A primeira execução do GitHub Actions, disparada por push na branch `main`, foi concluída com **sucesso: 6 testes aprovados, 0 falhas**, em 1 minuto e 34 segundos (execução completa).
+
+- [Consultar a execução aprovada no GitHub Actions](https://github.com/AndreiBritto07/desafio-mouts/actions/runs/44206443217)
+- [Consultar todas as execuções do workflow](https://github.com/AndreiBritto07/desafio-mouts/actions/workflows/cypress-tests.yml)
 
 O Cypress apresenta o resultado dos cenários no terminal e, quando configurado para isso, produz screenshots de falhas em `cypress/screenshots/`. No GitHub Actions, essas capturas podem ser consultadas nos artefatos da execução com falha.
 
